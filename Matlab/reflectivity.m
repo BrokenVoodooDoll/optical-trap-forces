@@ -1,0 +1,6 @@
+function R = reflectivity(th, psi, n1, n2)
+    theta_refl = th_r(th, n1, n2);
+    R = (tan(th - theta_refl).^2 ./ tan(th + theta_refl).^2) .* ...
+        cos(psi).^2 + ...
+        (sin(th - theta_refl).^2 ./ sin(th + theta_refl).^2) .* sin(psi).^2;
+end
