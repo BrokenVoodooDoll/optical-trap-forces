@@ -21,13 +21,14 @@ xlabel('r, m')
 ylabel('I(r)')
 
 % Integration
-Qres_g = @(y) integral2(@(beta, r) r .* gauss(r, r_max, w0) .* ...
+G0 = gauss_peak(r_max, w0);
+Qres_g = @(y) G0 * integral2(@(beta, r) r .* gauss(r, r_max, w0) .* ...
     iscomplex(qg_y_factor(beta, r, y, n1, n2, Rsp, f)), 0, 2*pi, 0, r_max, ...
-    'Method', 'iterated', 'AbsTol', 1e-6, 'RelTol', 1e-6);
+    'Method', 'iterated', 'AbsTol', 1e-8, 'RelTol', 1e-6);
 
-Qres_s = @(y) integral2(@(beta, r) r .* gauss(r, r_max, w0) .* ...
+Qres_s = @(y) G0 * integral2(@(beta, r) r .* gauss(r, r_max, w0) .* ...
     iscomplex(qs_y_factor(beta, r, y, n1, n2, Rsp, f)), 0, 2*pi, 0, r_max, ...
-    'Method', 'iterated', 'AbsTol', 1e-6, 'RelTol', 1e-6);
+    'Method', 'iterated', 'AbsTol', 1e-8, 'RelTol', 1e-6);
 
 % Calulation
 N = 150;
@@ -43,7 +44,7 @@ for ii = 1:N
 end
 close(wb);
 
-Transverse = abs(Transverse_g) + Transverse_s;
+Transverse = Transverse_g + Transverse_s;
 
 %Graphics
 figure

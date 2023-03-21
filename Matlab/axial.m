@@ -9,17 +9,6 @@ format compact
 
 load_constants
 
-% Factors plots
-
-theta = linspace(0, pi/2, 500);
-figure
-plot(theta, qs_factor(theta, pi/4, n1, n2), ...
-    theta, -qg_factor(theta, pi/4, n1, n2), ...
-    theta, qmag_factor(theta, pi/4, n1, n2))
-grid
-xlabel('$\theta$, $^{\circ}$', 'Interpreter', 'latex')
-ylabel('Q')
-
 % Intensity profile plots
 rho = linspace(-r_max, r_max, 500);
 figure
