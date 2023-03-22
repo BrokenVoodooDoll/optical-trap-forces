@@ -12,7 +12,7 @@ load_constants
 
 % Intensity profile graphics
 rho = linspace(-r_max, r_max, 500);
-I = gauss(rho, r_max, w0);
+I = gauss(rho, w0, r_max);
 I0 = max(I);
 figure
 plot(rho, I/I0, 'k')
@@ -21,12 +21,11 @@ xlabel('r, m')
 ylabel('I(r)')
 
 % Integration
-G0 = gauss_peak(r_max, w0);
-Qres_g = @(y) G0 * integral2(@(beta, r) r .* gauss(r, r_max, w0) .* ...
+Qres_g = @(y) 1 / (pi * w0^2) * integral2(@(beta, r) r .* gauss(r, w0, r_max) .* ...
     iscomplex(qg_y_factor(beta, r, y, n1, n2, Rsp, f)), 0, 2*pi, 0, r_max, ...
     'Method', 'iterated', 'AbsTol', 1e-8, 'RelTol', 1e-6);
 
-Qres_s = @(y) G0 * integral2(@(beta, r) r .* gauss(r, r_max, w0) .* ...
+Qres_s = @(y) 1 / (pi * w0^2) * integral2(@(beta, r) r .* gauss(r, w0, r_max) .* ...
     iscomplex(qs_y_factor(beta, r, y, n1, n2, Rsp, f)), 0, 2*pi, 0, r_max, ...
     'Method', 'iterated', 'AbsTol', 1e-8, 'RelTol', 1e-6);
 
