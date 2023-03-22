@@ -26,23 +26,22 @@ plt.ylabel('I(r)', fontsize=18)
 def q_res_g(dy, func):
     ans = integrate.dblquad(lambda dr, db, dy: dr * func(dr) * q_g_y(db, dr, dy) * (~np.iscomplex(q_g_y(db, dr, dy))).astype(float),
                             0, 2 * np.pi, 0, r_max, args=(dy, ),
-                            epsabs=1e-8, epsrel=1e-6)
-    return ans[0]
+                            epsabs=1e-6, epsrel=1e-6)
+    return ans[0] / (np.pi * w0 ** 2)
 
 
 def q_res_s(dy, func):
     ans = integrate.dblquad(lambda dr, db: dr * func(dr) * q_s_y(db, dr, dy) * (~np.iscomplex(q_g_y(db, dr, dy))).astype(float),
                             0, 2 * np.pi, 0, r_max,
-                            epsabs=1e-8, epsrel=1e-6)
-    return ans[0]
-
+                            epsabs=1e-6, epsrel=1e-6)
+    return ans[0] / (np.pi * w0 ** 2)
 
 # Calculation
 n = 150
 y = np.linspace(-2 * Rsp, 2 * Rsp, n)
 
-transverse_g = gauss_peak() * F0 * np.abs(np.array([q_res_g(x, gauss) for x in y]))
-transverse_s = gauss_peak() * F0 * np.array([q_res_s(x, gauss) for x in y])
+transverse_g = F0 * np.abs(np.array([q_res_g(dy, gauss) for dy in y]))
+transverse_s = F0 * np.array([q_res_s(dy, gauss) for dy in y])
 transverse = transverse_g + transverse_s
 
 

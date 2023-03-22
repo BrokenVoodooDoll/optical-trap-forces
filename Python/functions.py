@@ -8,7 +8,7 @@ n2 = 1.4607  # index of refraction of the fused silica at wavelength 523 nm
 NA = 1.25  # numerical aperture
 f = 2.0e-3  # objective lens focus or WD
 Rsp = 1.03e-6  # sphere radius
-P = 4.4e-3  # power of the laser
+P = 51.7e-3  # power of the laser
 ratio = 1.0  # the ratio of the beam radius to the aperture radius
 
 th_max = np.arcsin(NA / n1)  # maximum angle of incidence
@@ -106,23 +106,37 @@ def q_s_y(beta, r, y):
 
 
 # Intensity distributions
-def gauss_peak():
-    A = (1 - np.exp(-2*r_max ** 2 / w0 ** 2))
-    return 2*A / (np.pi * w0 ** 2)
-
-
 def gauss(r):
-    return np.exp(-2 * r ** 2 / w0 ** 2)
+    # the fraction of power that falls on the pupil of the micro lens
+    A = (1 - np.exp(-2*r_max ** 2 / w0 ** 2))
+    return 2 * A * np.exp(-2 * r ** 2 / w0 ** 2)
 
 
 def bessel(r):
-    return special.jv(0, 2.405 / w0 * r) ** 2
-
-
-def bessel_peak():
-    return 4.81 / (w0 * r_max * np.exp(0.5)) * 2 * np.pi * integrate.quad(lambda r: r * special.jv(0, 2.405 / w0 * r) ** 2,
-                                                                          0, r_max, epsabs=1e-12, epsrel=1e-6)[0]
+    ring_radius = 2.405; # radius of the first ring of the besselj_0
+    # the fraction of power that falls on the pupil of the micro lens
+    A = ring_radius / (w0 * r_max * np.exp(0.5)) * 2 * np.pi * \
+        integrate.quad(lambda r: r * special.jv(0, ring_radius / w0 * r) ** 2,
+                       0, r_max, epsabs=1e-12, epsrel=1e-6)[0]
+    return 2 * A* special.jv(0, ring_radius / w0 * r) ** 2
 
 
 def uniform(r):
-    return P / (np.pi * r_max ** 2) * np.ones(r.shape)
+    return np.ones(r.shape)
+
+def test():
+    print("q_s = ", q_s(np.pi / 4, np.pi / 4))
+    print("q_g = ", q_g(np.pi / 4, np.pi / 4))
+    print("q_mag = ", q_mag(np.pi / 4, np.pi / 4))
+    print("q_s_avg = ", q_s_avg(np.pi / 4))
+    print("q_g_avg = ", q_g_avg(np.pi / 4))
+    print("q_mag_avg = ", q_mag_avg(np.pi / 4))
+    print("phi_i = ", phi_i(Rsp))
+    print("gamma = ", gamma(np.pi / 4, Rsp))
+    print("th_i_z = ", th_i_z(Rsp, Rsp))
+    print("th_i_y = ", th_i_y(np.pi / 4, Rsp, Rsp))
+    print("q_g_z = ", q_g_z(Rsp, Rsp))
+    print("q_s_z = ", q_s_z(Rsp, Rsp))
+    print("q_g_y = ", q_g_y(np.pi / 4, Rsp, Rsp))
+    print("q_s_y = ", q_s_y(np.pi / 4, Rsp, Rsp))
+    

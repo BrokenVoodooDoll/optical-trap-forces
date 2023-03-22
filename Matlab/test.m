@@ -1,0 +1,16 @@
+load_constants
+
+fprintf('q_s = %e\n', qs_factor(pi / 4, pi / 4, n1, n2))
+fprintf('q_g = %e\n', qg_factor(pi / 4, pi / 4, n1, n2))
+fprintf('q_mag = %e\n', qmag_factor(pi / 4, pi / 4, n1, n2))
+fprintf('qs_avg = %e\n', qs_avg_factor(pi / 4, n1, n2))
+fprintf('qg_avg = %e\n', qg_avg_factor(pi / 4, n1, n2))
+fprintf('q_mag_avg = %e\n', qmag_avg_factor(pi / 4, n1, n2))
+fprintf('phi_i = %e\n', phi_i(Rsp, f))
+fprintf('gamma = %e\n', gamma_angle(pi / 4, Rsp, f))
+fprintf('th_i_z = %e\n', th_i_z(Rsp, Rsp, Rsp, f))
+fprintf('th_i_y = %e\n', th_i_y(pi / 4, Rsp, Rsp, Rsp, f))
+fprintf('qg_z = %e\n', qg_z_factor(Rsp, Rsp, n1, n2, Rsp, f))
+fprintf('qs_z = %e\n', qs_z_factor(Rsp, Rsp, n1, n2, Rsp, f))
+fprintf('qg_y = %e\n', qg_y_factor(pi / 4, Rsp, Rsp, n1, n2, Rsp, f))
+fprintf('qs_y = %e\n', qs_y_factor(pi / 4, Rsp, Rsp, n1, n2, Rsp, f))
