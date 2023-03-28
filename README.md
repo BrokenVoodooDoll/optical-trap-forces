@@ -1,6 +1,6 @@
 # Optical Trap Forces
 
-*Read in [Russian](README_RU.md)*
+*Read in [Russian](README.ru.md)*
 
 This repository contains Python and Matlab code for calculating a single-beam laser trap, also called an optical tweezer, capturing a micrometer dielectric sphere. This can be considered as a simple model of a system describing the laser capture and manipulation of living organisms and organelles inside cells. The gradient force and the scattering force are determined for a beam with a uniform intensity distribution of Gaussian and Bessel beams (uniform beam and Bessel beam are only in the code).
 
