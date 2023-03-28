@@ -98,8 +98,9 @@ It can be seen from the graph that when the particle is displaced from the equil
 
 In the same way, forces acting in the lateral plane can be obtained. Here we consider the $Y$ axis, but the same consideration is valid for displacement along any direction in a plane perpendicular to the direction of the laser beam. However, in this case, new angles appear, shown in Fig. 6.
 
-![Test Caption](images/fig_6.png)
-*Test Caption*
+|![](images/fig_6.png)|
+|---|
+|Fig. 6. (A) the geometry of the trap with a focus $f$ located at a distance of $S'$ along $Y$ axis from the center of the sphere $O$. (B) Geometry of the plane of incidence, showing the direction of the gradient force $F_g$ and scatter force $F_s$ for the incident beam|
 
 They are determined by the following formulas:
 
