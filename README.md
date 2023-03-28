@@ -59,7 +59,7 @@ Let's plot the efficiencies $Q$ of the forces obtained. We introduce the relativ
 
 In Fig. 2 $Q = \sqrt{Q_s^2 +Q_g^2}$ is the efficiency of the resulting force acting on the particle. This graph shows the contribution of each ray incident on a particle at a certain angle. It can be seen that the maximum value of $Q_g$ is approximately at the value of the angle of incidence of $70^\circ$, which shows the need to use high values of $NA$. For comparison, we present graphs for other $n$ in Fig. 3 and 4.
 
-It can be seen that at $n\rightarrow 1$ the required maximum angle of incidence becomes too high, and at $n\rightarrow 1.4$$Q_s$ is equal to or exceeds $Q_g$ in most of the angle range, which indicates the difficulty of obtaining a stable capture.
+It can be seen that at $n\rightarrow 1$ the required maximum angle of incidence becomes too high, and at $n\rightarrow 1.4$ $Q_s$ is equal to or exceeds $Q_g$ in most of the angle range, which indicates the difficulty of obtaining a stable capture.
 
 ## Force along Z-axis
 
@@ -76,7 +76,7 @@ Thus, the resulting force acting on the particle along the axis $Z$ is determine
 
 $$F_Z^\Sigma = \frac{1}{\pi r_{max}} \int_{0}^{2\pi} \int_{0}^{r_{max}} (F_{gZ} + F_{sZ}) r d\beta dr$$
 
-where $r_{max} = f \tg{\phi_{max}}$.
+where $r_{max} = f \tan{\phi_{max}}$.
 
 Similarly, the individual components of the gradient force and the scattering force are determined by the following integrals:
 
@@ -167,3 +167,7 @@ Everything described above is designed in the form of Python and Matlab files:
 - Forces along $Y$ axis: [trap_forces_transverse.py](Python/trap_forces_transverse.py) and [trap_forces_transverse.m](Matlab/trap_forces_transverse.m)
 
 Launch one of these files, and the graphs will be plotted. You can change initial constants and do your experiments.
+
+## References
+
+- [A. Ashkin. Forces of a Single-Beam Gradient Laser Trap on a Dielectric Sphere in the Ray Optics Regime (1997). DOI: 10.1016/S0091-679X(08)60399-4](https://www.sciencedirect.com/science/article/abs/pii/S0091679X08603994)
