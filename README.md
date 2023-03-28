@@ -8,6 +8,8 @@ For dielectric spheres with a diameter much larger than the wavelength, geometri
 
 A simple geometrical-optical model of a single-beam gradient trap is shown in Fig. 1.
 
+![](images/fig_1.png)
+
 The trap consists of an incident parallel beam of a better arbitrary mode composition and polarization, which falls into a high-aperture micro lens and focuses in focus $f$. The maximum angle of deflection of the rays at the output of a micro lens is determined by its numerical aperture
 
 $$NA = n_1 \cdot \sin{\sigma_A}$$
@@ -95,6 +97,9 @@ It can be seen from the graph that when the particle is displaced from the equil
 ## Force along Y-axis
 
 In the same way, forces acting in the lateral plane can be obtained. Here we consider the $Y$ axis, but the same consideration is valid for displacement along any direction in a plane perpendicular to the direction of the laser beam. However, in this case, new angles appear, shown in Fig. 6.
+
+![Test Caption](images/fig_6.png)
+*Test Caption*
 
 They are determined by the following formulas:
 
