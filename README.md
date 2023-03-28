@@ -8,7 +8,9 @@ For dielectric spheres with a diameter much larger than the wavelength, geometri
 
 A simple geometrical-optical model of a single-beam gradient trap is shown in Fig. 1.
 
-![](images/fig_1.png)
+|![](images/fig_1.png)|
+|---|
+|(A) A single-beam gradient optical trap in the consideration of geometric optics with the focus $f$ located on the axis $Z$. (B) The geometry of the incident beam contributing to the forces $F_g$ and $F_s$|
 
 The trap consists of an incident parallel beam of a better arbitrary mode composition and polarization, which falls into a high-aperture micro lens and focuses in focus $f$. The maximum angle of deflection of the rays at the output of a micro lens is determined by its numerical aperture
 
@@ -27,7 +29,6 @@ For a single beam with a power of $P$ incident on a dielectric sphere at an angl
 $$F_s = \frac{n_1 P}{c} \left[ 1 + R \cos{2\theta} - \frac{T^2[\cos(2\theta - 2r) + R\cos{2\theta}]}{1 + R^2 + 2R\cos{2r}} \right] = \frac{n_1 P}{c} Q_s$$
 
 $$F_g = \frac{n_1 P}{c} \left[ R \sin{2\theta} - \frac{T^2[\sin(2\theta - 2r) + R\sin{2\theta}]}{1 + R^2 + 2R\cos{2r}} \right] = \frac{n_1 P}{c} Q_g$$
-
 
 where $F_s$ – scattering force [N];
 
@@ -59,7 +60,19 @@ It can be seen that the forces acting on the particle depend on the polarization
 
 Let's plot the efficiencies $Q$ of the forces obtained. We introduce the relative refractive index $n = \frac{n_2}{n_1}$. For the calculation, we will use the values $NA = 1.25$, from where $\phi_{max} = 70^\circ$; $n_1 = 1.33$; $𝑛 = 1.2$, from where $n_2 = 1.6$ (polystyrene). The value of $f$ and the radius of the particle do not need to be introduced, because in geometrical-optical consideration, the result does not depend on their values.
 
+|![](images/fig_2.png)|
+|---|
+|Fig. 2. Efficiency of forces acting on a particle at $n = 1.2$|
+
 In Fig. 2 $Q = \sqrt{Q_s^2 +Q_g^2}$ is the efficiency of the resulting force acting on the particle. This graph shows the contribution of each ray incident on a particle at a certain angle. It can be seen that the maximum value of $Q_g$ is approximately at the value of the angle of incidence of $70^\circ$, which shows the need to use high values of $NA$. For comparison, we present graphs for other $n$ in Fig. 3 and 4.
+
+|![](images/fig_3.png)|
+|---|
+|Fig. 3. Efficiency of forces acting on a particle at $n = 1.1$|
+
+|![](images/fig_4.png)|
+|---|
+|Fig. 4. Efficiency of forces acting on a particle at $n = 1.8$|
 
 It can be seen that at $n\rightarrow 1$ the required maximum angle of incidence becomes too high, and at $n\rightarrow 1.4$ $Q_s$ is equal to or exceeds $Q_g$ in most of the angle range, which indicates the difficulty of obtaining a stable capture.
 
@@ -91,6 +104,10 @@ where $\frac{1}{\pi r_{max}^2}$ is a normalization coefficient.
 The efficiencies of forces acting along the $Z$ $Q_{tz}$, $Q_{gz}$, $Q_{sz}$ axis are similarly obtained by dividing the forces by $\frac{n_1 P}{c}$.
 
 Let's build graphs based on the data given above (Fig. 5).
+
+|![](images/fig_5.png)|
+|---|
+|Fig. 5. Forces arising from the displacement of a particle along the axis $Z$|
 
 It can be seen from the graph that when the particle is displaced from the equilibrium position, the forces that return the particle back grow. The force acquires maximum values in the coordinates $z = -1.06\ \mu m$ and $z = 1.02\ \mu m$. The stability of the capture and the rigidity of the trap depend on the specific values of these forces. It can also be noticed that the equilibrium position of the particle is slightly shifted relative to zero and that due to symmetry in this case, the force does not depend on the polarization of light.
 
@@ -136,7 +153,11 @@ $$F_{gY}^\Sigma = \frac{1}{\pi r_{max}} \int_{0}^{2\pi} \int_{0}^{r_{max}} F_{gY
 
 $$F_{sY}^\Sigma = \frac{1}{\pi r_{max}} \int_{0}^{2\pi} \int_{0}^{r_{max}} F_{sY} r d\beta dr$$
 
-Using the same data, we will plot the efficiencies of forces along the $Y$ axis.
+Using the same data, we will plot the efficiencies of forces along the $Y$ axis (Fig. 7).
+
+|![](images/fig_7.png)|
+|---|
+|Fig. 7. Forces arising from the displacement of a particle along the axis $Y$|
 
 It can be seen that the returning force acts symmetrically when the particle is displaced, and the equilibrium position is already at zero.
 
@@ -146,7 +167,7 @@ In the case of a Gaussian beam (the main $TEM_{00}$ mode), the intensity distrib
 
 $$I(r) = \exp\left(-\frac{2r^2}{w_0}\right)$$
 
-Graphs of forces acting along the $Z$ and $Y$ axes under the condition $\varepsilon = 1.0\ (w_0 = r_{max})$ are shown in Fig. 7 and 8.
+Graphs of forces acting along the $Z$ and $Y$ axes under the condition $\varepsilon = 1.0\ (w_0 = r_{max})$ are shown in Fig. 5 and 7.
 
 Calculate the distributions for other values of $\varepsilon$ and summarize the data in Table 1. In this table, the value $A = 1 - \exp\left(-\frac{2r_{max}^2}{w_0}\right)$ is the fraction of power that falls on the input pupil of the micro lens. 
 
@@ -170,7 +191,7 @@ Everything described above is designed in the form of Python and Matlab files:
 
 - Forces along $Z$ axis: [trap_forces_axial.py](Python/trap_forces_axial.py) and [trap_forces_axial.m](Matlab/trap_forces_axial.m)
 
-- Forces along $Y$ axis: [trap_forces_transverse.py](Python/trap_forces_transverse.py) and [trap_forces_transverse.m](Matlab/trap_forces_transverse.m)
+- Forces along $Y$ axis: [trap_forces_transverse.py](Python/trap_forces_transverse.py) and [trap_forces_transverse.m](Matlab/trap_forces_transverse.m) (**takes more time to calculate!**)
 
 Launch one of these files, and the graphs will be plotted. You can change initial constants and do your experiments.
 

@@ -13,13 +13,14 @@ sns.set()
 
 # Intensity profile graphics
 rho = np.linspace(-r_max, r_max, 500)
-fig1 = plt.figure(1, figsize=(10, 6))
+plt.figure(1, figsize=(10, 6))
 I = gauss(rho)
 I0 = np.max(I)
 plt.plot(rho, I / I0)
 plt.fill_between(rho, I / I0, 0, alpha=0.3)
-plt.xlabel('r, m', fontsize=18)
-plt.ylabel('I(r)', fontsize=18)
+plt.title("Forces along Z axis")
+plt.xlabel('$r, m$', fontsize=18)
+plt.ylabel('$I(r)$', fontsize=18)
 
 
 # Integration
@@ -46,11 +47,12 @@ transverse = transverse_g + transverse_s
 
 
 # Graphics
-fig2 = plt.figure(2, figsize=(10, 6))
+plt.figure(2, figsize=(10, 6))
 plt.plot(y, transverse_g, '-.', lw=1, label='$F_{g}$')
 plt.plot(y, transverse_s, '--', lw=1, label='$F_{s}$')
 plt.plot(y, transverse, lw=1, label='$F_{t}$')
-plt.xlabel('r, m', fontsize=18)
-plt.ylabel('F, m', fontsize=18)
+plt.xlabel('$r, m$', fontsize=18)
+plt.ylabel('$F, N$', fontsize=18)
 plt.legend()
+
 plt.show()
